@@ -13,7 +13,7 @@ class HalykBankCommand implements Command {
     }
 
     public void execute(HelloController controller, Text text, ProgressBar progressBar, StackPane stackPane) {
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(10.0), (ae) -> {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(5.0), (ae) -> {
             progressBar.setVisible(true);
             stackPane.getChildren().addAll(progressBar, text);
             controller.inProcessPane.getChildren().add(stackPane);
