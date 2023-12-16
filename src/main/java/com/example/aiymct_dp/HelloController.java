@@ -2,6 +2,7 @@ package com.example.aiymct_dp;
 
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
@@ -277,6 +278,13 @@ public class HelloController {
         Map.Entry entry;
         for(Iterator<Map.Entry<AtomicInteger, Integer>> var3 = map.entrySet().iterator(); var3.hasNext(); sum += ((AtomicInteger)entry.getKey()).get() * (Integer)entry.getValue()) {
             entry = var3.next();
+        }
+
+        if (clientName.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setContentText("Please, enter your name");
+            alert.showAndWait();
+            return;
         }
 
         this.subTotalPrice.setText("Sub Total Price: " + sum + "KZT");
